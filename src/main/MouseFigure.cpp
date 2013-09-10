@@ -108,6 +108,20 @@ void MouseFigure::handleInput(SDL_Event& event)
                         }
                         break;
                     }
+                    case rectRed:
+                    {
+                        //load image
+                        Surface* rect = new Surface("images/redrectangle.png");
+
+                        //and place the object there
+                        Figure* newFig = new RectFigure(x, y, *rect, screen,
+                                Figure::GRAVITY_DISABLED, false, 0, 0, 0, 1,
+                                lvlWidth, lvlHeight, Figure::BOUNDARY);
+
+                        //and place it into the map
+                        container->push_back(newFig);
+                        break;
+                    }
                 }
                 break;
             }
@@ -153,14 +167,14 @@ void MouseFigure::handleInput(SDL_Event& event)
                     y += camera->y;
 
                     //load image
-                    Surface* redrectsurf = new Surface("images/rectangle.png");
+                    Surface* redrectsurf = new Surface("images/redrectangle.png");
 
                     //and place the object there
                     tempObject = new MouseFigure(x, y, *redrectsurf, screen,
                             Figure::GRAVITY_DISABLED, false, 0, 0, 0, 1,
                             lvlWidth, lvlHeight, Figure::BOUNDARY);
 
-                    currentObject = rect;
+                    currentObject = rectRed;
                 }
                 break;
 
