@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lmingw32 -lSDLmain -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf
+LIBS := -lSDL -lSDL_mixer -lSDL_ttf -lSDL_image
 

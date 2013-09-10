@@ -41,7 +41,7 @@ public:
 	Header* header;
 
 	enum objecttype{
-		none, rect, rectwiths, dot
+		none, rect, rectwiths, dot, rectRed
 	};
 
 	objecttype currentObject;

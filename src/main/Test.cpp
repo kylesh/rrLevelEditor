@@ -125,44 +125,6 @@ int main(int argc, char* argv[]) {
 
 		Mix_HaltMusic();
 
-		if (TEST_STRING_INPUT) {
-			quit = false;
-			bool nameEntered = false;
-
-			StringInput name(TTF_PATH, FONT_SIZE, FONT_COLOR, screen);
-			Surface msg(TTF_PATH, FONT_SIZE, FONT_COLOR, "New High Score! Enter Name: ");
-
-			fillScreen(screen, Surface::WHITE);
-			applySurface(getHorizontalMiddlePosition(msg, screen), 100, msg, screen);
-			flip(screen);
-
-			while (!quit) {
-				if (SDL_PollEvent(&event)) {
-					if (event.type == SDL_QUIT) {
-						quit = true;
-						break;
-					}
-
-					if (!nameEntered) {
-						name.handleInput(event);
-
-						if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_RETURN) {
-							nameEntered = true;
-							msg.setSDL_Surface(TTF_PATH, FONT_SIZE, FONT_COLOR, "Rank 1st: ");
-							quit = true;
-						}
-					}
-
-					fillScreen(screen, Surface::WHITE);
-					applySurface(getHorizontalMiddlePosition(msg, screen), 100, msg, screen);
-					name.showCentered();
-
-					flip(screen);
-
-					if (nameEntered) SDL_Delay(500);
-				}
-			}
-		}
 	}
 
 	cleanUp();
